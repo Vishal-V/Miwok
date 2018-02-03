@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.miwok.MainActivity">
+
+    <TextView
+        android:id="@+id/numbers"
+        style="@style/textStyle"
+        android:layout_height="wrap_content"
+        android:background="#FD8E09"
+        android:onClick="openNumbers"
+        android:text="Numbers"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/familyMembers"
+        style="@style/textStyle"
+        android:layout_height="wrap_content"
+        android:background="#379237"
+        android:onClick="openFamilyMembers"
+        android:text="Family Members"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numbers" />
+
+    <TextView
+        android:id="@+id/colors"
+        style="@style/textStyle"
+        android:layout_height="wrap_content"
+        android:background="#8800A0"
+        android:onClick="openColors"
+        android:text="Colors"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/familyMembers" />
+
+    <TextView
+        android:id="@+id/phrases"
+        style="@style/textStyle"
+        android:layout_height="wrap_content"
+        android:background="#16AFCA"
+        android:onClick="openPhrases"
+        android:text="Phrases"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colors" />
+</android.support.constraint.ConstraintLayout>
