@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.EventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,26 +15,73 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void openNumbers(View view) {
-        Intent myIntent = new Intent(MainActivity.this, NumbersActivity.class);
-        MainActivity.this.startActivity(myIntent);
-    }
+        TextView number = (TextView) findViewById(R.id.numbers);
+        
+        number.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+            }
+        });
 
-    public void openFamilyMembers (View view) {
-        Intent myIntent1 = new Intent(MainActivity.this, FamilyMembersActivity.class);
-        MainActivity.this.startActivity(myIntent1);
-    }
+        TextView family = (TextView) findViewById(R.id.familyMembers);
 
-    public void openColors (View view) {
-        Intent myIntent2 = new Intent(MainActivity.this, ColorsActivity.class);
-        MainActivity.this.startActivity(myIntent2);
-    }
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent familyIntent = new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(familyIntent);
+            }
+        });
 
-    public void openPhrases (View view) {
-        Intent myIntent3 = new Intent(MainActivity.this, PhrasesActivity.class);
-        MainActivity.this.startActivity(myIntent3);
+        TextView colors = (TextView) findViewById(R.id.colors);
+
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorsIntent);
+            }
+        });
+
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
