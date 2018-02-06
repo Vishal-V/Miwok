@@ -31,9 +31,9 @@ public class NumbersActivity extends AppCompatActivity {
         int count = 0;
         LinearLayout root = (LinearLayout) findViewById(R.id.rootView);
 
-        while(count != 10){
+        for(int i = 0; i<10; i++) {
             TextView wordView = new TextView(this);
-            wordView.setText(words.get(count));
+            wordView.setText(words.get(i));
             root.addView(wordView);
         }
     }
