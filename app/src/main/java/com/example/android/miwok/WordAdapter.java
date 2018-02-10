@@ -30,7 +30,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         View listView = convertView;
         if(listView == null){
-            listView = LayoutInflater.from(getContext()).inflate(R.layout.list_view, parent);
+            listView = LayoutInflater.from(getContext()).inflate(R.layout.list_view, parent, false);
         }
 
         Word w = getItem(position);

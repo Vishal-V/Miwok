@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -13,23 +14,26 @@ public class FamilyMembersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family_members);
+        setContentView(R.layout.words_view);
 
-        ArrayList<String> words = new ArrayList<String>();
-        words.add(0,"One");
-        words.add(1,"Two");
-        words.add(2,"Three");
-        words.add(3,"Four");
-        words.add(4,"Five");
-        words.add(5,"Six");
-        words.add(6,"Seven");
-        words.add(7,"Eight");
-        words.add(8,"Nine");
-        words.add(9,"Ten");
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("әpә", "father"));
+        words.add(new Word("әṭa", "mother"));
+        words.add(new Word("angsi", "son"));
+        words.add(new Word("tune", "daughter"));
+        words.add(new Word("taachi", "older brother"));
+        words.add(new Word("chalitti", "younger brother"));
+        words.add(new Word("teṭe", "older sister"));
+        words.add(new Word("kolliti", "younger sister"));
+        words.add(new Word("ama", "grandmother"));
+        words.add(new Word("paapa", "grandfather"));
 
-        ArrayAdapter<String> gridAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
-        GridView griddy = (GridView) findViewById(R.id.list);
-        griddy.setAdapter(gridAdapter);
+
+        WordAdapter adapterList = new WordAdapter(this, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(adapterList);
 
     }
 }
