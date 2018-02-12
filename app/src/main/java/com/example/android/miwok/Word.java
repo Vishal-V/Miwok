@@ -16,7 +16,12 @@ public class Word {
         mResourceId = resource;
     }
 
-
+    public boolean hasImage() {
+        if(this.mResourceId == -1){
+            return false;
+        }
+        return true;
+    }
 
     public String getMiwokTranslation() {
         return mMiwokWord;

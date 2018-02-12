@@ -44,12 +44,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         ImageView imageView = (ImageView) listView.findViewById(R.id.image1);
 
-        if(w.hasImage() == 0) {
+        if(w.hasImage() == false) {
             imageView.setVisibility(View.GONE);
         }
         else {
-            imageView.setVisibility(View.VISIBLE);
             imageView.setImageResource(w.getResourceId());
+            imageView.setVisibility(View.VISIBLE);
         }
 
 
