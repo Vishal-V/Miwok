@@ -8,19 +8,17 @@
 
     <TextView
         android:id="@+id/numbers"
-        style="@style/textStyle"
-        android:layout_height="wrap_content"
         android:background="#FD8E09"
         android:text="@string/numbers"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/textStyle1"/>
 
     <TextView
         android:id="@+id/familyMembers"
-        style="@style/textStyle"
-        android:layout_height="wrap_content"
+        style="@style/textStyle1"
         android:background="#379237"
         android:text="@string/family"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,8 +28,7 @@
 
     <TextView
         android:id="@+id/colors"
-        style="@style/textStyle"
-        android:layout_height="wrap_content"
+        style="@style/textStyle1"
         android:background="#8800A0"
         android:text="@string/colors"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,8 +38,7 @@
 
     <TextView
         android:id="@+id/phrases"
-        style="@style/textStyle"
-        android:layout_height="wrap_content"
+        style="@style/textStyle1"
         android:background="#16AFCA"
         android:text="@string/phrases"
         app:layout_constraintHorizontal_bias="0.0"

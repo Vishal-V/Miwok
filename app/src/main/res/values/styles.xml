@@ -3,20 +3,28 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#4A312A</item>
+        <item name="colorPrimaryDark">#2F1D1A</item>
+        <item name="colorAccent">#FFF7DA</item>
+    </style>
+
+    <style name="textStyle1">
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="textStyle">
-        <item name="android:padding">16dp</item>
-        <item name="android:layout_height">88dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_height">44dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">14sp</item>
     </style>
-
 </resources>
