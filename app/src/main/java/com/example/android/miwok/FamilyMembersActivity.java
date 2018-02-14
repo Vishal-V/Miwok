@@ -1,5 +1,6 @@
 package com.example.android.miwok;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,35 @@ import java.util.ArrayList;
 public class FamilyMembersActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
+    private MediaPlayer.OnCompletionListener mOnComplete = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
+
+    private int mResult;
+    private AudioManager mAudioManager;
+    private AudioManager.OnAudioFocusChangeListener mOnFocusChange = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int i) {
+            if(i == AudioManager.AUDIOFOCUS_GAIN_TRANSIENT){
+                mMediaPlayer.start();
+            }
+            else if (i == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT){
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }
+            else if (i == AudioManager.AUDIOFOCUS_LOSS){
+                mMediaPlayer.stop();
+                releaseMediaPlayer();
+            }
+            else if (i == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +70,33 @@ public class FamilyMembersActivity extends AppCompatActivity {
 
         listView.setAdapter(adapterList);
 
+        mAudioManager = (AudioManager) FamilyMembersActivity.this.getSystemService(AUDIO_SERVICE);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, words.get(i).playThisResource());
-                mMediaPlayer.start();
+                releaseMediaPlayer();
+                mResult = mAudioManager.requestAudioFocus(mOnFocusChange, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if(mResult == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, words.get(i).playThisResource());
+                    mMediaPlayer.start();
+                    mMediaPlayer.setOnCompletionListener(mOnComplete);
+                }
             }
         });
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    private void releaseMediaPlayer(){
+        if(mMediaPlayer != null){
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 }
